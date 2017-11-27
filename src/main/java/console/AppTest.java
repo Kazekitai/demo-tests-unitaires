@@ -11,6 +11,8 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dev.exception.CalculException;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -45,7 +47,7 @@ public class AppTest {
 		assertThat(systemOutRule.getLog()).contains("1+34=35");
 	}
 	
-	@Test
+	@Test(expected=CalculException.class)
 	public void testEvaluerNonConforme() throws Exception {
 		LOG.info("Etant donné, un service CalculService qui retourne 35 à l'évaluation de l'expression 1+34");
 		String expression = "";

@@ -17,10 +17,12 @@ public class CalculService {
 		/* TODO par exemple "Evaluation de l'expression 1+4" */
 		LOG.debug("Evaluation de l'expression " + expression);
 		if (expression.isEmpty()) {
+			LOG.error("l'expression " + expression + "est invalide");
 			throw new CalculException("erreur l'expression est vide");
 		}
 		String[] nbs = expression.split("\\+");
 		if (nbs.length == 0) {
+			LOG.error("l'expression " + expression + "est invalide");
 			throw new CalculException("erreur l'expression est invalide. Elle doit contenir des nombre séparé des +");
 		}
 
